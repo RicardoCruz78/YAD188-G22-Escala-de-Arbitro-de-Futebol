@@ -34,72 +34,73 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-			
-			
+
+
 
 				<!-- success message -->
 				<div th:if="${param.success}">
 					<div class="alert alert-info">Seu cadastro foi registrado com
 						sucesso!</div>
 				</div>
-				
-				
-				                             <h1>Cadastro</h1>
+
+
+				<h1>Cadastro</h1>
 
 				<form th:action="@{/registration}" method="post" th:object="${user}">
 
-					
 
-					
+
+
 					<div class="panel panel-default" style="margin: 10px">
 
-					<div class="panel-heading">
+						<div class="panel-heading">
 
-						<h1 class="panel-title">----------------------------------NOVOS ÁRBITROS------------------------------</h1>
-					</div>
-					<div class="panel-body">
+							<h1 class="panel-title">----------------------------------NOVOS
+								ÁRBITROS------------------------------</h1>
+						</div>
+						<div class="panel-body">
 
-						<table class="table">
-						
-						
-						
-						      <div class="form-row">
-							<div class="form-group col-md-6">
-									<label for="nome">nome</label> <input type="text"
-										class="form-control" required id="nome" name="nome"
-										placeholder="Digite seu nome">
-								</div>
-						
-						
-	                             <div class="form-row">
-							<div class="form-group col-md-6">
-									<label for="email">email</label> <input type="email"
-										class="form-control" required id="email" name="email"
-										placeholder="Digite seu email">
-								</div>
-								
-								  <div class="form-row">
-							<div class="form-group col-md-6">
-									<label for="telefoneCelular">Telefone Celular</label> <input type="tel"
-										class="form-control" required id="email" name="telefoneCelular"
-										placeholder="Digite seu celular">
-								</div>
-								
+							<table class="table">
 
-					<div class="form-row">
-					<div class="form-group col-md-6">
-						<label class="control-label" for="password"> Senha </label> <input
-							id="password" class="form-control" type="password"
-							th:field="*{password}" placeholder="Digite uma senha"required autofocus="autofocus" />
-					</div>
 
-						</table>
 
-					<div class="form-group">
-						<button type="submit" class="btn btn-success">Cadastrar</button>
-						<span>Ja Cadastrado? <a href="/" th:href="@{/login}">Login
-								aqui</a></span>
-					</div>
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="nome">nome</label> <input type="text"
+											class="form-control" required id="nome" name="nome"
+											placeholder="Digite seu nome">
+									</div>
+
+
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="email">email</label> <input type="email"
+												class="form-control" required id="email" name="email"
+												placeholder="Digite seu email">
+										</div>
+
+										<div class="form-row">
+											<div class="form-group col-md-6">
+												<label for="telefoneCelular">Telefone Celular</label> <input
+													type="tel" class="form-control" required id="email"
+													name="telefoneCelular" placeholder="Digite seu celular">
+											</div>
+
+
+											<div class="form-row">
+												<div class="form-group col-md-6">
+													<label class="control-label" for="password"> Senha
+													</label> <input id="password" class="form-control" type="password"
+														th:field="*{password}" placeholder="Digite uma senha"
+														required autofocus="autofocus" />
+												</div>
+							</table>
+
+							<div class="form-group">
+								<button type="submit" class="btn btn-success">Cadastrar</button>
+								<span>Ja Cadastrado? <a href="/" th:href="@{/login}">Login
+										aqui</a></span>
+							</div>
 				</form>
 			</div>
 		</div>
