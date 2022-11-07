@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<title>Cadastro</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Cadastro de
+					Login e Senha</a>
+			</div>
+		</div>
+	</nav>
+
+	<br>
+	<br>
+	<!-- Create HTML registration form -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+			
+			
+
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">Seu cadastro foi registrado com
+						sucesso!</div>
+				</div>
+				
+				
+				                             <h1>Cadastro</h1>
+
+				<form th:action="@{/registration}" method="post" th:object="${user}">
+
+					
+
+					
+					<div class="panel panel-default" style="margin: 10px">
+
+					<div class="panel-heading">
+
+						<h1 class="panel-title">----------------------------------NOVOS ÁRBITROS------------------------------</h1>
+					</div>
+					<div class="panel-body">
+
+						<table class="table">
+						
+						
+						
+						      <div class="form-row">
+							<div class="form-group col-md-6">
+									<label for="nome">nome</label> <input type="text"
+										class="form-control" required id="nome" name="nome"
+										placeholder="Digite seu nome">
+								</div>
+						
+						
+	                             <div class="form-row">
+							<div class="form-group col-md-6">
+									<label for="email">email</label> <input type="email"
+										class="form-control" required id="email" name="email"
+										placeholder="Digite seu email">
+								</div>
+								
+								  <div class="form-row">
+							<div class="form-group col-md-6">
+									<label for="telefoneCelular">Telefone Celular</label> <input type="tel"
+										class="form-control" required id="email" name="telefoneCelular"
+										placeholder="Digite seu celular">
+								</div>
+								
+
+					<div class="form-row">
+					<div class="form-group col-md-6">
+						<label class="control-label" for="password"> Senha </label> <input
+							id="password" class="form-control" type="password"
+							th:field="*{password}" placeholder="Digite uma senha"required autofocus="autofocus" />
+					</div>
+
+						</table>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Cadastrar</button>
+						<span>Ja Cadastrado? <a href="/" th:href="@{/login}">Login
+								aqui</a></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
