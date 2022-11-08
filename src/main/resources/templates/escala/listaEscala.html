@@ -26,11 +26,18 @@
 
 			<li class="nav-item"><a class="nav-link active"
 				href="/listaArbitro">Listar Árbitro</a></li>
-			<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 
 
 			<li class="nav-item"><a class="nav-link"
 				href="https://futebolpaulista.com.br/Home/" target="_blank">FPF</a>
+			<li class="nav-item"><a class="nav-link"
+				href="https://www.cbf.com.br/"> CBF</a></li>
+			<span class="icon-bar"></span>
+
+			<li class="nav-item"><a class="nav-link"
+				href="https://www.fifa.com/"> FIFA</a></li>
+
+			<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 		</ul>
 
 		<form class="form-inline" method="POST" th:object="${listaEscala}"
@@ -70,18 +77,19 @@
 
 
 								<tr>
-									<th>Cd escala</th>
+									<th>Id escala</th>
 									<th>Data</th>
 									<th>Time Mandante</th>
 									<th>Time visitante</th>
 
-									<th>Árbitro</th>
+									<th><font color="red"> Árbitro</th>
 									<th>Confirmar</th>
-									<th>Assistente 1</th>
+									<th><font color="red"> Assistente 1</th>
+
 									<th>Confirmar</th>
-									<th>Assistente 2</th>
+									<th><font color="red"> Assistente 2</th>
 									<th>Confirmar</th>
-									<th>Quarto Árbitro</th>
+									<th><font color="red"> Quarto Árbitro</th>
 									<th>Confirmar</th>
 									<!--  
 									<th>Data</th>
@@ -89,28 +97,23 @@
 									<th>Local</th>
 									-->
 							<tfoot>
-								<th>
+								<th>Id escala</th>
+								<th>Data</th>
 								<th>Time Mandante</th>
 								<th>Time visitante</th>
-								<th>Árbitro</th>
+								<th><font color="red"> Árbitro</th>
 								<th>Confirmar</th>
-								<th>Assistente 1</th>
+								<th><font color="red"> Assistente 1</th>
 								<th>Confirmar</th>
-								<th>Assistente 2</th>
+								<th><font color="red"> Assistente 2</th>
 								<th>Confirmar</th>
-								<th>Quarto Árbitro</th>
+								<th><font color="red"> Quarto Árbitro</th>
+								<th>Confirmar</th>
 
-								<th>Confirmar</th>
-								<!-- 
-								<th>Data</th>
-								<th>Endereço</th>
-								<th>Local</th>
-								 -->
 							</tfoot>
-							</th>
-							</th>
 
-							<th>
+
+
 							</thead>
 							<tbody>
 
@@ -118,8 +121,8 @@
 								<tr th:each="escala : ${escala} ">
 
 									<td th:text="${escala.id}"></td>
-									<td th:text="${escala.data}"></td>
-									<td th:text="${escala.timeMandante}"></td>
+									<td th:text=" ${escala.data}"></td>
+									<td th:text=" ${escala.timeMandante }"></td>
 									<td th:text="${escala.timeVisitante}"></td>
 									<td th:text="${escala.arbitro.nome}"></td>
 									<td th:text="${escala.ativo}"></td>
