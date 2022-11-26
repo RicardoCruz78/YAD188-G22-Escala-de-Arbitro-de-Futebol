@@ -1,0 +1,90 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<title>Lista de Usuários</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar">
+
+		<ul class="nav nav-tabs">
+			<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+			<li class="nav-item"><a class="nav-link active"
+				href="/listaEscala">Listar Escala</a></li>
+
+
+			<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+
+		<form class="form-inline" method="POST" th:object="${listaUser}"
+			th:action="@{/listaUser}" style="margin: 20px 0">
+
+
+
+			<h3 class="m-0 font-weight-bold text-primary"
+				style="display: inline-block;">Lista de Usuários</h3>
+
+			<div class="panel panel-default" style="margin: 10px">
+				<div class="panel-heading">
+					<h1 class="panel-title">Aqui você pode cadastrar, alterar ou
+						excluir Usuarios</h1>
+					<div class="container mt-5">
+						<h2 align="center">Pesquisar Usuários</h2>
+
+						<form th:action="@{/listaUser}" method="get">
+
+							<input type="number" name="user" class="form-control" required
+								id="id" placeholder="Insira o Id do árbitro" size="50">
+							<button type="submit" class="btn btn-info">Buscar</button>
+
+
+						</form>
+					</div>
+
+					<div class="panel-body">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Email</th>
+									<th>Nome</th>
+									<th>Senha</th>
+									<th sec:authorize="hasRole('ADMIN')">email</th>
+
+
+									<th>
+							</thead>
+							<tbody>
+								<tr>
+								<tr th:each="user : ${user} ">
+									<td th:text="${user.id}"></td>
+									<td th:text="${user.nome}"></td>
+									<td th:text="${user.email}"></td>
+									<td th:text="${user.password}"></td>
+
+
+									<td><a th:href="@{'/user/' + ${user.id}}"
+										class="btn btn-warning">Alterar</td>
+
+									<td><a sec:authorize="hasRole('ADMIN')" href="#"
+										th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/user/{id}(id=${user.id})}
+	 + '/excluir\' } '"
+										class="btn btn-danger">Excluir</td>
+
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+</body>
+</html>

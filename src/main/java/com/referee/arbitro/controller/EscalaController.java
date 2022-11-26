@@ -68,6 +68,21 @@ public class EscalaController {
 		}
 		return "escala/listaEscala";
 	}
+	
+	// ------------------Pesquisar escalas --------------------
+			@RequestMapping(path = { "/listaEscalas" })
+			public String pesquisarEscalas(Escala escala, Model model, Long id) {
+				if (id != null) {
+					Optional<Escala> list = service.getById(id);
+					model.addAttribute("list", list);
+
+				} else {
+					List<Escala> list = service.getAllEscalas();
+					model.addAttribute("list", list);
+				}
+				return "escala/listaEscalas";
+			}
+		
 
 	// -------------tela do formulario cadastrar escala -------------//
 

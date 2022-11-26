@@ -14,29 +14,17 @@
 	crossorigin="anonymous">
 </head>
 <body>
-
+  
 	<nav class="navbar navbar-inverse navbar">
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
 
-			<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
-				class="nav-link active" href="escala/novaEscala">Cadastrar
-					Escala</a></li>
-
-
-			<li class="nav-item"><a class="nav-link active"
+			<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a class="nav-link active"
+				href="escala/novaEscala">Cadastrar Escala</a></li>
+				
+				
+				<li class="nav-item"><a class="nav-link active"
 				href="/listaArbitro">Listar Árbitro</a></li>
-
-			<li class="nav-item"><a class="nav-link"
-				href="https://futebolpaulista.com.br/Home/" target="_blank">FPF</a>
-			<li class="nav-item"><a class="nav-link"
-				href="https://www.cbf.com.br/"> CBF</a></li>
-			<span class="icon-bar"></span>
-
-			<li class="nav-item"><a class="nav-link"
-				href="https://www.fifa.com/"> FIFA</a></li>
-
-
 			<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 		</ul>
 
@@ -44,7 +32,7 @@
 			th:action="@{/listaEscalas}" style="margin: 20px 0">
 
 
-
+			
 
 			<h3 class="m-0 font-weight-bold text-primary"
 				style="display: inline-block;">Lista de Escalas</h3>
@@ -56,15 +44,13 @@
 					<h1 class="panel-title">Aqui você pode cadastrar, alterar,
 						buscar e excluir escala de árbitros</h1>
 					<div class="container mt-5">
-
+					
 						<h2 align="center">Pesquisar todas Escala</h2>
 
-						<form th:action="@{/listaEscala}" method="get">
-							<input sec:authorize="hasRole('ADMIN')" type="number"
-								name="escala" class="form-control" required id="id"
-								placeholder="Insira o Id da Escala" size="50">
-							<button sec:authorize="hasRole('ADMIN')" type="submit"
-								class="btn btn-info">Buscar</button>
+						<form th:action="@{/listaEscalas}" method="get">
+							<input sec:authorize="hasRole('ADMIN')"  type="number" name="escala" class="form-control" required
+								id="id" placeholder="Insira o Id da Escala" size="50">
+							<button sec:authorize="hasRole('ADMIN')" type="submit" class="btn btn-info">Buscar</button>
 
 
 						</form>
@@ -77,22 +63,27 @@
 
 
 								<tr>
-									<th>Id escala</th>
+									<th>Cd escala</th>
 									<th>Data</th>
 									<th>Time Mandante</th>
 									<th>Time visitante</th>
-
+										
 									<th>Árbitro</th>
-									<th>Confirmar</th>
+									<th>Confirmar</th>								
 									<th>Assistente 1</th>
 									<th>Confirmar</th>
 									<th>Assistente 2</th>
 									<th>Confirmar</th>
 									<th>Quarto Árbitro</th>
 									<th>Confirmar</th>
+									<!--  
+									<th>Data</th>
+									<th>Endereço</th>
+									<th>Local</th>
+									-->
 							<tfoot>
-								<th>Id escala</th>
-								<th>Data</th>
+								<th>
+								
 								<th>Time Mandante</th>
 								<th>Time visitante</th>
 								<th>Árbitro</th>
@@ -102,28 +93,36 @@
 								<th>Assistente 2</th>
 								<th>Confirmar</th>
 								<th>Quarto Árbitro</th>
-
+						
 								<th>Confirmar</th>
-
+								<!-- 
+								<th>Data</th>
+								<th>Endereço</th>
+								<th>Local</th>
+								 -->
 							</tfoot>
+							</th>
+							</th>
 
+							<th>
+							</thead>
 							<tbody>
-
+							
 								<tr>
-								<tr th:each="escala : ${escala} ">
-
-									<td th:text="${escala.id}"></td>
-									<td th:text="${escala.data}"></td>
-									<td th:text="${escala.timeMandante}"></td>
-									<td th:text="${escala.timeVisitante}"></td>
+								<tr  th:each="escala : ${escala} ">
+								
+								<td th:text="${escala.id}"></td>
+								<td th:text="${escala.data}"></td>
+									<td  th:text= "${escala.timeMandante}"></td>
+									<td th:text= "${escala.timeVisitante}"></td>
 									<td th:text="${escala.arbitro.nome}"></td>
 									<td th:text="${escala.ativo}"></td>
 									<td th:text="${escala.arbitro1.nome}"></td>
 									<td th:text="${escala.ativo1}"></td>
-
+									
 									<td th:text="${escala.arbitro2.nome}"></td>
 									<td th:text="${escala.ativo2}"></td>
-
+								
 									<td th:text="${escala.QuartoArbitro.nome}"></td>
 									<td th:text="${escala.ativo3}"></td>
 									<!--  
@@ -131,15 +130,14 @@
 									<td th:text="${escala.Endereco}"></td>
 									<td th:text="${escala.nomeEstadio}"></td>
 									-->
-									<td><a sec:authorize="hasRole('ADMIN')"
-										th:href="@{'/escala/' + ${escala.id}}" class="btn btn-warning">Alterar</td>
-
-									<td><a th:href="@{'/confirmar/' + ${escala.id}}"
+									<td><a sec:authorize="hasRole('ADMIN')" th:href="@{'/escala/' + ${escala.id}}"
+										class="btn btn-warning">Alterar</td>
+										
+									<td><a  th:href="@{'/confirmar/' + ${escala.id}}"
 										class="btn btn-warning">Confirmar Escala</td>
+										
 
-
-									<td><a sec:authorize="hasRole('ADMIN')" href="#"
-										th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/escala/{id}(id=${escala.id})}
+									<td><a sec:authorize="hasRole('ADMIN')" href="#"	th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/escala/{id}(id=${escala.id})}
 	 + '/excluir\' } '"
 										class="btn btn-danger">Excluir</td>
 
@@ -149,6 +147,8 @@
 						</table>
 					</div>
 				</div>
-		</form>
+				
+				</form>
+					
 </body>
 </html>

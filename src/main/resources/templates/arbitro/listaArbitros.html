@@ -92,7 +92,7 @@
 									<th>Escolaridade</th>
 									<th>Ano de Formacao de Árbitro</th>
 
-									<th><font color="red"> Peso</th>
+									<th> Peso</th>
 									<th>Altura</th>
 									<th>Funcão</th>
 									<th sec:authorize="hasRole('ADMIN')">Pix</th>
@@ -105,7 +105,8 @@
 								<tr>
 								<tr th:each="arbitro : ${arbitro} ">
 
-									<td th:text="${arbitro.id}"></td>
+								
+									<td th:text="${arbitro?.user?.id}"></td>
 									<td th:text="${arbitro.user.nome}"></td>
 									<td sec:authorize="hasRole('ADMIN')"
 										th:text="${arbitro.user.email}"></td>
