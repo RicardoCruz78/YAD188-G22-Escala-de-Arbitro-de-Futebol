@@ -35,18 +35,38 @@ private UserService service;
 	}
 	
 	
-	// ------------------Buscar User --------------------
-			 @RequestMapping(path = {"/listaUser"})
-			   public String listarTodos(User user, Model model, Long id) {
-			    if(id!=null) {
-			     Optional<User> list = service.getById(id);
+	// ------------------Buscar User por adm --------------------
+			 @SuppressWarnings("unused")
+			@RequestMapping(path = {"/listaUser"})
+			   public String listarTodos(User user, Model model,String keyword, Long id) {
+			    if(keyword!=null  ) {
+			  //   Optional<User> list = service.getById(id);
+			     List<User>list = service.getByKeyword(keyword);
 			     model.addAttribute("list", list);
-			     model.addAttribute("codigo", id);
+			   //  model.addAttribute("codigo", id);
 			    }else {
 			    List<User> list = service.getAllUsers();
 			    model.addAttribute("list", list);}
 			    return "user/listaUser";
 			   }
+			 
+			 
+			 
+			// ------------------Buscar o Id do usuário digitando o nome --------------------
+			 @RequestMapping(path = {"/buscarId"})
+			   public String buscarId(User user, Model model,String keyword, Long id) {
+			    if(keyword!=null) {
+			    	  List<User> list = service.getByKeyword(keyword);
+			   	   model.addAttribute("list", list);
+			   	  }else {
+			   	  List<User> list = service.getAllUsers();
+			   	  model.addAttribute("list", list);}
+			    return "user/buscarId";
+			   }
+	
+			 
+			 
+			 
 	
 	
 	// ============================Buscando com Validação=================

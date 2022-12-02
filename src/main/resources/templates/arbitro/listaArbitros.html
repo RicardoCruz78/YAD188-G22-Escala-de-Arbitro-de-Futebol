@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar">
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
 
@@ -54,9 +54,10 @@
 						<h2 align="center">Pesquisar Árbitro</h2>
 
 						<form th:action="@{/listaArbitros}" method="get">
-							<input sec:authorize="hasRole('ADMIN')" type="number"
-								name="arbitro" class="form-control" required id="id"
-								placeholder="Insira seu Id" size="50">
+							
+								
+								<input type="text" name="keyword"th:value="${keyword}"class="form-control" 
+							 placeholder="Insira  disponibilidade, escolaridade ou função" size="50">
 							<button sec:authorize="hasRole('ADMIN')" type="submit"
 								class="btn btn-info">Buscar</button>
 
@@ -103,7 +104,7 @@
 
 
 								<tr>
-								<tr th:each="arbitro : ${arbitro} ">
+								<tr th:each="arbitro : ${list}" th:field="${arbitro}">
 
 								
 									<td th:text="${arbitro?.user?.id}"></td>

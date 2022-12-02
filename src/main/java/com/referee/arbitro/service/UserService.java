@@ -27,4 +27,6 @@ public interface UserService extends UserDetailsService {
     Boolean userLoggedContainAuthority(String authority);
 
 	User save(UserRegistrationDto registrationDto);
+
+	List<User> getByKeyword(String keyword);
 }

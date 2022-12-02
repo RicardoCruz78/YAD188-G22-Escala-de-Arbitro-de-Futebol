@@ -77,6 +77,9 @@ public class UserServiceImpl implements UserService {
 
         return userRepo.findById(id);
     }
+    public List<User> getByKeyword(String keyword){
+        return userRepo.findByKeyword(keyword);
+       }
     
     @Override
     public User getByEmail(String email) {

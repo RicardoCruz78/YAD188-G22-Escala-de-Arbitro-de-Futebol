@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.referee.arbitro.model.User;
 import java.util.List;
+import java.util.Optional;
 
 
 
@@ -17,12 +18,12 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> { 
 	User findByEmail( String email);
-	 @Query(value = "SELECT * from  user WHERE cpf=?  ;" ,nativeQuery = true)
+	 @Query(value = "SELECT * from  user u WHERE u.nome like %:keyword%",nativeQuery = true)
 
 	 List<User> findByKeyword(@Param("keyword") String keyword);
- 
-
-
-
+ /*
+	 @Query(value = "SELECT * from  user WHERE id=?  ;" ,nativeQuery = true)
+	 Optional<User> findById(@Param("id") Long id);
+*/
 	
 }

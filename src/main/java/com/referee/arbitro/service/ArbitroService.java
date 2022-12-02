@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import com.referee.arbitro.model.Arbitro;
@@ -26,5 +27,13 @@ public class ArbitroService {
 	public Optional<Arbitro> getById(Long id) {
 		return arb.findById(id);
 	}
+
+	public List<Arbitro> getByKeyword(String keyword) {
+		// TODO Auto-generated method stub
+		return arb.findByKeyword(keyword);
+	}
+
+	
+	
 
 }

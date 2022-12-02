@@ -33,6 +33,10 @@
 						href="/" th:href="@{/registration}"> Registrar</a></li> <span
 						class="icon-bar"></span>
 					<li class="nav-item"><a class="nav-link" href="/listaArbitro">Árbitro</a></li>
+					
+				
+					<li  class="nav-item"><a class="nav-link" href="/buscarId">Buscar Id</a></li>
+					
 
 					<span class="icon-bar"></span>
 					<li class="nav-item"><a class="nav-link" href="/listaNota">Nota</a></li>
@@ -76,6 +80,8 @@
 
 
 					<li class="nav-item"><a class="nav-link" href="/listaArbitro">Árbitro</a></li>
+					
+					<li sec:authorize="hasRole('USER')" class="nav-item"><a class="nav-link" href="/buscarId">buscar Id</a></li>
 
 					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
 						class="nav-link" href="/listaArbitros">Listar Árbitros</a></li>
