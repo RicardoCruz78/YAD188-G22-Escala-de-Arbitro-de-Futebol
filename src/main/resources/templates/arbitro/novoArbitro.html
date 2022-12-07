@@ -18,7 +18,8 @@
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link active" href="/">Home</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/listaArbitro">Lista
+				
+				<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a class="nav-link" href="/listaArbitros">Lista
 						de arbitro</a></li>
 				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 			</ul>
@@ -36,6 +37,8 @@
 									placeholder="Digite seu Id de Login">
 							</div>
 							</div>
+							
+						
 
 							<div class="form-group col-md-6">
 								<label for="cpf">CPF </label> <input type="text"

@@ -27,4 +27,8 @@ public class EscalaService {
 		return escalaRepo.findById(id);
 	}
 
+	public List<Escala> getByKeyword(String keyword) {
+		return escalaRepo.findByKeyword(keyword);
+	}
+
 }

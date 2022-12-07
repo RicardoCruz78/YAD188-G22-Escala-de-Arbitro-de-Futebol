@@ -24,7 +24,7 @@
 				
 				
 				<li class="nav-item"><a class="nav-link active"
-				href="/listaArbitro">Listar Árbitro</a></li>
+				href="/listaArbitros">Listar Árbitros</a></li>
 			<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 		</ul>
 
@@ -48,10 +48,11 @@
 						<h2 align="center">Pesquisar todas Escala</h2>
 
 						<form th:action="@{/listaEscalas}" method="get">
-							<input sec:authorize="hasRole('ADMIN')"  type="number" name="escala" class="form-control" required
-								id="id" placeholder="Insira o Id da Escala" size="50">
+						
+							<input sec:authorize="hasRole('ADMIN')" type="text" name="keyword"th:value="${keyword}"class="form-control" 
+							 placeholder="Insira nome do time ou data" size="50">
 							<button sec:authorize="hasRole('ADMIN')" type="submit" class="btn btn-info">Buscar</button>
-
+							<button type="submit" class="btn btn-info" >Ver Todos</button>
 
 						</form>
 					</div>
@@ -109,10 +110,11 @@
 							<tbody>
 							
 								<tr>
-								<tr  th:each="escala : ${escala} ">
+									<tr th:each="escala : ${list}" th:field="${escala}">
 								
 								<td th:text="${escala.id}"></td>
 								<td th:text="${escala.data}"></td>
+								
 									<td  th:text= "${escala.timeMandante}"></td>
 									<td th:text= "${escala.timeVisitante}"></td>
 									<td th:text="${escala.arbitro.nome}"></td>

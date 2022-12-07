@@ -71,9 +71,9 @@ public class EscalaController {
 	
 	// ------------------Pesquisar escalas --------------------
 			@RequestMapping(path = { "/listaEscalas" })
-			public String pesquisarEscalas(Escala escala, Model model, Long id) {
-				if (id != null) {
-					Optional<Escala> list = service.getById(id);
+			public String pesquisarEscalas(Escala escala, Model model, String keyword) {
+				if (keyword != null) {
+					List<Escala> list = service.getByKeyword(keyword);
 					model.addAttribute("list", list);
 
 				} else {

@@ -119,6 +119,8 @@
 
 									<td><a th:href="@{'/arbitro/' + ${arbitro.id}}"
 										class="btn btn-warning">Alterar</td>
+										
+										
 
 									<td><a sec:authorize="hasRole('ADMIN')" href="#"
 										th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/arbitro/{id}(id=${arbitro.id})}

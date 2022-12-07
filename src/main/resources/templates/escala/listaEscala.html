@@ -25,7 +25,7 @@
 
 
 			<li class="nav-item"><a class="nav-link active"
-				href="/listaArbitro">Listar Árbitro</a></li>
+				href="/listaArbitro">Árbitro</a></li>
 
 
 			<li class="nav-item"><a class="nav-link"
@@ -53,11 +53,11 @@
 				<div class="panel-heading">
 
 
-					<h1 class="panel-title">Aqui você pode cadastrar, alterar,
+					<h1 a sec:authorize="hasRole('ADMIN')" class="panel-title">Aqui você pode cadastrar, alterar,
 						buscar e excluir escala de árbitros</h1>
 					<div class="container mt-5">
 
-						<h2 align="center">Pesquisar Escala</h2>
+						<h2 align="center">Escalas</h2>
 
 						<form th:action="@{/listaEscala}" method="get">
 							<input sec:authorize="hasRole('ADMIN')" type="number"
