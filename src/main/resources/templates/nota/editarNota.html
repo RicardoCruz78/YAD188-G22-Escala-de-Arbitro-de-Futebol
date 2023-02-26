@@ -1,17 +1,16 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<title>Editar Escala</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Editar Escala</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
+
 <body>
 
 	<ul class="nav nav-tabs">
@@ -31,27 +30,23 @@
 			</div>
 			<div class="panel-body">
 				<div class="form-group">
-					<form method="POST"
-						th:action="@{'/nota/' + ${nota.id} + '/atualizar'}">
+					<form method="POST" th:action="@{'/nota/' + ${nota.id} + '/atualizar'}">
 
 						<div class="form-group col-md-2">
-							<label for="nota">Id Nota</label> <input type="text"
-								class="form-control" th:value="${nota?.id}" required id="nota"
-								name="nota" readonly>
+							<label for="nota">Id Nota</label> <input type="text" class="form-control"
+								th:value="${nota?.id}" required id="nota" name="nota" readonly>
 						</div>
 
 						<div class="form-group col-md-3">
-							<label for="nome">Nome do Árbitro</label> <input type="text"
-								class="form-control" th:value="${nota?.user?.nome}" required
-								id="nome" name="nome" readonly>
+							<label for="nome">Nome do Árbitro</label> <input type="text" class="form-control"
+								th:value="${nota?.user?.nome}" required id="nome" name="nome" readonly>
 						</div>
 
 
 						<div class="form-row">
 							<div class="form-group col-md-5">
-								<label for="dificuldade">Dificuldade</label> <input type="text"
-									class="form-control" th:value="${nota?.dificuldade}" required
-									id="dificuldade" name="dificuldade">
+								<label for="dificuldade">Dificuldade</label> <input type="text" class="form-control"
+									th:value="${nota?.dificuldade}" required id="dificuldade" name="dificuldade">
 
 							</div>
 
@@ -59,25 +54,22 @@
 
 						<div class="form-row">
 							<div class="form-group col-md-4">
-								<label for="emocional">Controle</label> <input type="text"
-									class="form-control" th:value="${nota?.emocional}" required
-									id="emocional" name="emocional">
+								<label for="emocional">Controle</label> <input type="text" class="form-control"
+									th:value="${nota?.emocional}" required id="emocional" name="emocional">
 							</div>
 
 							<div class="form-row">
 								<div class="form-group col-md-2">
-									<label for="som_apito">som_apito</label> <input type="text"
-										class="form-control" th:value="${nota?.som_apito}" required
-										id="som_apito" name="som_apito">
+									<label for="som_apito">som_apito</label> <input type="text" class="form-control"
+										th:value="${nota?.som_apito}" required id="som_apito" name="som_apito">
 
 								</div>
 
 								<div class="form-row">
 									<div class="form-group col-md-4">
-										<label for="comunicacao">Comunicação</label> <input
-											type="text" class="form-control"
-											th:value="${nota?.comunicacao}" required id="comunicacao"
-											name="comunicacao">
+										<label for="comunicacao">Comunicação</label> <input type="text"
+											class="form-control" th:value="${nota?.comunicacao}" required
+											id="comunicacao" name="comunicacao">
 
 
 									</div>
@@ -85,9 +77,8 @@
 
 									<div class="form-row">
 										<div class="form-group col-md-5">
-											<label for="fisico">Físico</label> <input type="text"
-												class="form-control" th:value="${nota?.fisico}" required
-												id="fisico" name="fisico">
+											<label for="fisico">Físico</label> <input type="text" class="form-control"
+												th:value="${nota?.fisico}" required id="fisico" name="fisico">
 
 
 										</div>
@@ -97,9 +88,8 @@
 
 									<div class="form-row">
 										<div class="form-group col-md-2">
-											<label for="postura">Postura</label> <input type="text"
-												class="form-control" th:value="${nota?.postura}" required
-												id="postura" name="postura">
+											<label for="postura">Postura</label> <input type="text" class="form-control"
+												th:value="${nota?.postura}" required id="postura" name="postura">
 										</div>
 
 										<div class="form-group col-md-6">
@@ -110,9 +100,8 @@
 
 
 										<div class="form-group col-md-3">
-											<label for="nt">Nota</label> <input type="text"
-												class="form-control" th:value="${nota?.nt}" required id="nt"
-												name="nt">
+											<label for="nt">Nota</label> <input type="text" class="form-control"
+												th:value="${nota?.nt}" required id="nt" name="nt">
 										</div>
 
 										<br>
@@ -129,7 +118,7 @@
 							</div>
 						</div>
 				</div>
-				
+
 </body>
 
 </html>

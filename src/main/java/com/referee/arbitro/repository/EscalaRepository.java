@@ -19,7 +19,8 @@ public interface EscalaRepository extends CrudRepository<Escala, Long> {
 	public List<Escala> filtrar(Long id);
 
 	public List<Escala> findByOrderByIdDesc();
-	 @Query(value = "SELECT * from  escala e WHERE e.time_mandante like %:keyword% or e.time_visitante like %:keyword%",nativeQuery = true)
-	 public List<Escala> findByKeyword(String keyword);  
+
+	@Query(value = "SELECT * from  escala e WHERE e.time_mandante like %:keyword% or e.time_visitante like %:keyword%", nativeQuery = true)
+	public List<Escala> findByKeyword(String keyword);
 
 }

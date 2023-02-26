@@ -22,7 +22,7 @@ import com.referee.arbitro.service.UserService;
 public class ArbitroController {
 
 	@Autowired
-	private ArbitroRepository arb;
+	private ArbitroRepository arb; 
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -68,14 +68,25 @@ public class ArbitroController {
 		}
 		return "arbitro/listaArbitro";
 	}
-/*
-	// ------------------Buscar arbitrosssss --------------------
-	@RequestMapping(path = { "/listaArbitros" })
-	public String listarTodoss(Arbitro arbitro, Model model, Long id) {
-		if (id != null) {
-			Optional<Arbitro> list = service.getById(id);
-			model.addAttribute("list", list);
 
+	/*
+	 * // ------------------Buscar arbitrosssss --------------------
+	 * 
+	 * @RequestMapping(path = { "/listaArbitros" }) public String
+	 * listarTodoss(Arbitro arbitro, Model model, Long id) { if (id != null) {
+	 * Optional<Arbitro> list = service.getById(id); model.addAttribute("list",
+	 * list);
+	 * 
+	 * } else { List<Arbitro> list = service.getAllArbitros();
+	 * model.addAttribute("list", list); } return "arbitro/listaArbitros"; }
+	 * 
+	 */
+	// ------------------Buscar Id do arbitro --------------------
+	@RequestMapping(path = { "/listaArbitros" })
+	public String buscarDisponibilidde(Arbitro arbitro, Model model, String keyword, Long id) {
+		if (keyword != null) {
+			List<Arbitro> list = service.getByKeyword(keyword);
+			model.addAttribute("list", list);
 		} else {
 			List<Arbitro> list = service.getAllArbitros();
 			model.addAttribute("list", list);
@@ -83,23 +94,6 @@ public class ArbitroController {
 		return "arbitro/listaArbitros";
 	}
 
-	*/
-	// ------------------Buscar Id do arbitro --------------------
-	 @RequestMapping(path = { "/listaArbitros"})
-	   public String buscarDisponibilidde(Arbitro arbitro, Model model,String keyword, Long id) {
-	    if(keyword!=null) {
-	    	  List<Arbitro> list = service.getByKeyword(keyword);
-	   	   model.addAttribute("list", list);
-	   	  }else {
-	   	  List<Arbitro> list = service.getAllArbitros();
-	   	  model.addAttribute("list", list);}
-	    return "arbitro/listaArbitros";
-	   }
-	
-	
-	
-	
-	
 //===================Tela do formulario cadastrar=====================================================================
 	@GetMapping("arbitro/novoArbitro")
 	public String novoArbitro() {

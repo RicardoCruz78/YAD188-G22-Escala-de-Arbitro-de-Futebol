@@ -1,17 +1,16 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<title>Editar Arbitro</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Editar Arbitro</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
+
 <body>
 	<ul class="nav nav-tabs">
 		<li class="nav-item"><a class="nav-link active" href="/">Home</a>
@@ -30,108 +29,94 @@
 
 			<div class="panel-body">
 				<div class="form-group">
-					<form method="POST"
-						th:action="@{'/arbitro/' + ${arbitro.id} + '/atualizar'}">
-						
-						
+					<form method="POST" th:action="@{'/arbitro/' + ${arbitro.id} + '/atualizar'}">
+
+
 
 						<div class="form-group col-md-2">
-							<label for="arbitro">Id Árbitro</label> <input type="text"
-								class="form-control" th:value="${arbitro?.id}" required
-								id="arbitro" name="arbitro" readonly>
+							<label for="arbitro">Id Árbitro</label> <input type="text" class="form-control"
+								th:value="${arbitro?.id}" required id="arbitro" name="arbitro" readonly>
 						</div>
 
 
 
 						<div class="form-group col-md-2">
-							<label for="user">Id Login</label> <input type="text"
-								class="form-control" th:value="${arbitro?.user?.id}" required
-								id="user" name="user" readonly>
+							<label for="user">Id Login</label> <input type="text" class="form-control"
+								th:value="${arbitro?.user?.id}" required id="user" name="user" readonly>
 						</div>
 
 
 						<div class="form-group col-md-3">
-							<label for="nome">Nome do Árbitro</label> <input type="text"
-								class="form-control" th:value="${arbitro?.user?.nome}" required
-								id="nome" name="nome" readonly>
+							<label for="nome">Nome do Árbitro</label> <input type="text" class="form-control"
+								th:value="${arbitro?.user?.nome}" required id="nome" name="nome" readonly>
 						</div>
 
 
 						<div class="form-group col-md-3">
-							<label for="email">Email</label> <input type="email"
-								class="form-control" th:value="${arbitro?.user?.email}" required
-								id="email" name="email" readonly>
+							<label for="email">Email</label> <input type="email" class="form-control"
+								th:value="${arbitro?.user?.email}" required id="email" name="email" readonly>
 						</div>
 
 
 
 						<div class="form-row">
 							<div class="form-group col-md-3">
-								<label for="telefoneResidencial">Telefone Residencial</label> <input
-									type="text" class="form-control"
-									th:value="${arbitro?.telefoneResidencial}" required
+								<label for="telefoneResidencial">Telefone Residencial</label> <input type="text"
+									class="form-control" th:value="${arbitro?.telefoneResidencial}" required
 									id="telefoneResidencial" name="telefoneResidencial">
 							</div>
 
 							<div class="form-group col-md-3">
-								<label for="telefoneResidencial">Telefone Celular</label> <input
-									type="text" class="form-control"
-									th:value="${arbitro?.user.telefoneCelular}" required
+								<label for="telefoneResidencial">Telefone Celular</label> <input type="text"
+									class="form-control" th:value="${arbitro?.user.telefoneCelular}" required
 									id="telefoneCelular" name="telefoneCelular" readonly>
 							</div>
 
 							<div class="form-group col-md-3">
 
-								<label for="nome">Cpf</label> <input type="text"
-									class="form-control" th:value="${arbitro?.cpf}" required
-									id="cpf" name="cpf" readonly>
+								<label for="nome">Cpf</label> <input type="text" class="form-control"
+									th:value="${arbitro?.cpf}" required id="cpf" name="cpf" readonly>
 							</div>
 
 							<div class="form-group col-md-3">
-								<label for="dataNascimento">Data Nascimento</label> <input
-									type="date" class="form-control"
-									th:value="${arbitro?.dataNascimento}" required
+								<label for="dataNascimento">Data Nascimento</label> <input type="date"
+									class="form-control" th:value="${arbitro?.dataNascimento}" required
 									id="dataNascimento" name="dataNascimento">
 							</div>
 
 							<div class="form-group col-md-3">
-								<label for="rg">Rg</label> <input type="text"
-									class="form-control" th:value="${arbitro?.rg}" required id="rg"
-									name="rg">
+								<label for="rg">Rg</label> <input type="text" class="form-control"
+									th:value="${arbitro?.rg}" required id="rg" name="rg">
 							</div>
 
 
 
 							<div class="form-group col-md-4">
-								<label for="endereco">Endereço</label> <input type="text"
-									class="form-control" th:value="${arbitro?.endereco}" required
-									id="endereco" name="endereco">
+								<label for="endereco">Endereço</label> <input type="text" class="form-control"
+									th:value="${arbitro?.endereco}" required id="endereco" name="endereco">
 							</div>
 
 
 							<div class="form-row">
 								<div class="form-group col-md-2">
-									<label for="cep">Cep</label> <input type="text"
-										class="form-control" th:value="${arbitro?.cep}" required
-										id="cep" name="cep">
+									<label for="cep">Cep</label> <input type="text" class="form-control"
+										th:value="${arbitro?.cep}" required id="cep" name="cep">
 								</div>
 
 
 
 								<div class="form-group col-md-3">
-									<label for="cidadeNascimento">Cidade Nascimento</label> <input
-										type="text" class="form-control"
-										th:value="${arbitro?.cidadeNascimento}" required
+									<label for="cidadeNascimento">Cidade Nascimento</label> <input type="text"
+										class="form-control" th:value="${arbitro?.cidadeNascimento}" required
 										id="cidadeNascimento" name="cidadeNascimento">
 								</div>
 
 
 
 								<div class="form-group col-md-3">
-									<label for="escolaridade">Escolaridade</label> <br> <input
-										type="radio" name="escolaridade" value="Ensino Médio" />
-									Ensino Médio <input type="radio" name="escolaridade"
-										value="Superior" /> Superior
+									<label for="escolaridade">Escolaridade</label> <br> <input type="radio"
+										name="escolaridade" value="Ensino Médio" />
+									Ensino Médio <input type="radio" name="escolaridade" value="Superior" /> Superior
 								</div>
 
 								<!--  
@@ -143,46 +128,41 @@
 								</div>
  -->
 								<div class="form-group col-md-2">
-									<label for="estado">Estado</label> <input type="text"
-										class="form-control" th:value="${arbitro?.estado}" required
-										id="estado" name="estado">
+									<label for="estado">Estado</label> <input type="text" class="form-control"
+										th:value="${arbitro?.estado}" required id="estado" name="estado">
 								</div>
 
 								<div class="form-group col-md-3">
-									<label for="escolaridade">Função</label> <br> <input
-										type="radio" name="funcao" value="Árbitro" /> Árbitro <input
-										type="radio" name="funcao" value="Assistente" /> Assistente
+									<label for="escolaridade">Função</label> <br> <input type="radio" name="funcao"
+										value="Árbitro" /> Árbitro <input type="radio" name="funcao"
+										value="Assistente" /> Assistente
 								</div>
 
 
 								<div class="form-group col-md-2">
-									<label for="anoFormacaoArbitro">Ano Formação Árbitro</label> <input
-										type="text" class="form-control"
-										th:value="${arbitro?.anoFormacaoArbitro}" required
+									<label for="anoFormacaoArbitro">Ano Formação Árbitro</label> <input type="text"
+										class="form-control" th:value="${arbitro?.anoFormacaoArbitro}" required
 										id="anoFormacaoArbitro" name="anoFormacaoArbitro">
 								</div>
 
 
 								<div class="form-group col-md-4">
-									<label for="estadoCivil">Estado civil</label> <br> <input
-										type="radio" name="estadoCivil" value="Casado" /> Casado <input
-										type="radio" name="estadoCivil" value="Solteiro" /> Solteiro
+									<label for="estadoCivil">Estado civil</label> <br> <input type="radio"
+										name="estadoCivil" value="Casado" /> Casado <input type="radio"
+										name="estadoCivil" value="Solteiro" /> Solteiro
 									<input type="radio" name="estadoCivil" value="Divorciado" />
-									Divorciado <input type="radio" name="estadoCivil"
-										value="Amigado" /> Amigado
+									Divorciado <input type="radio" name="estadoCivil" value="Amigado" /> Amigado
 								</div>
 
 
 
 								<div class="form-group col-md-3">
-									<label for="peso">Peso</label> <input type="text"
-										class="form-control" th:value="${arbitro?.peso}" required
-										id="peso" name="peso">
+									<label for="peso">Peso</label> <input type="text" class="form-control"
+										th:value="${arbitro?.peso}" required id="peso" name="peso">
 								</div>
 								<div class="form-group col-md-3">
-									<label for="altura">Altura</label> <input type="text"
-										class="form-control" th:value="${arbitro?.altura}" required
-										id="altura" name="altura">
+									<label for="altura">Altura</label> <input type="text" class="form-control"
+										th:value="${arbitro?.altura}" required id="altura" name="altura">
 
 
 
@@ -198,18 +178,17 @@
 								</div>
 -->
 								<div class="form-group col-md-3">
-									<label for="pix">Pix</label> <input type="text"
-										class="form-control" th:value="${arbitro?.pix}" required
-										id="pix" name="pix">
+									<label for="pix">Pix</label> <input type="text" class="form-control"
+										th:value="${arbitro?.pix}" required id="pix" name="pix">
 								</div>
 
 								<div class="form-group col-md-3">
 
 
-									<label for="user">Disponibilidade</label> <br> <input
-										type="radio" name="disponibilidade" value="Semana toda" />
-									Semana toda <input type="radio" name="disponibilidade"
-										value="Final de Semana" /> Final de Semana
+									<label for="user">Disponibilidade</label> <br> <input type="radio"
+										name="disponibilidade" value="Semana toda" />
+									Semana toda <input type="radio" name="disponibilidade" value="Final de Semana" />
+									Final de Semana
 
 
 
@@ -221,10 +200,11 @@
 
 								</div>
 								<button type="submit" class="btn btn-primary">Enviar</button>
-								
-												<button class="btn btn-warning" href="javascript:void(0)"
-													onClick="history.go(-2); return false;">Voltar</button>
+
+								<button class="btn btn-warning" href="javascript:void(0)"
+									onClick="history.go(-2); return false;">Voltar</button>
 							</div>
 					</form>
 </body>
+
 </html>

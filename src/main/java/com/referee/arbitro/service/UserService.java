@@ -1,6 +1,5 @@
 package com.referee.arbitro.service;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -11,22 +10,28 @@ import com.referee.arbitro.model.User;
 import com.referee.arbitro.web.UserRegistrationController;
 import com.referee.arbitro.web.dto.UserRegistrationDto;
 
-
 @Service
 public interface UserService extends UserDetailsService {
-    User save(UserRegistrationController registrationDto);
 
-    Optional<User> getById(Long id);
+	User save(UserRegistrationController registrationDto);
 
-    List<User> getAllUsers();
-    
-    User getByEmail(String email);
+	Optional<User> getById(Long id);
 
-    User getUserLogged();
+	List<User> getAllUsers();
 
-    Boolean userLoggedContainAuthority(String authority);
+	User getByEmail(String email);
+
+	User getUserLogged();
+
+	Boolean userLoggedContainAuthority(String authority);
 
 	User save(UserRegistrationDto registrationDto);
 
 	List<User> getByKeyword(String keyword);
+
+	User getByResetPasswordToken(String token);
+
+	void updateResetPasswordToken(String token, String email);
+
+	void updatePassword(User user, String password);
 }

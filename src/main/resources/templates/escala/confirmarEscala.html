@@ -1,17 +1,16 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<title>Confirmar Escala</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Confirmar Escala</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
+
 <body>
 
 	<ul class="nav nav-tabs">
@@ -29,198 +28,171 @@
 			</div>
 			<div class="panel-body">
 				<div class="form-group">
-					<form method="POST"
-						th:action="@{'/escala/' + ${escala.id} + '/confirmar'}">
+					<form method="POST" th:action="@{'/escala/' + ${escala.id} + '/confirmar'}">
 
 						<div class="form-row">
-							<font color="green"><font></font>
+							<font color="green">
+								<font></font>
 								<div class="form-group col-md-6">
-									<label for="timeMandante">Time Mandante</label> <input
-										type="text" class="form-control"
-										th:value="${escala?.timeMandante}" required id="timeMandante"
-										name="timeMandante" readonly>
+									<label for="timeMandante">Time Mandante</label> <input type="text"
+										class="form-control" th:value="${escala?.timeMandante}" required
+										id="timeMandante" name="timeMandante" readonly>
 
 								</div>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="timeVisitante">Time Visitante</label> <input
-								type="text" class="form-control"
-								th:value="${escala?.timeVisitante}" required id="timeVisitante"
-								name="timeVisitante" readonly>
+							<label for="timeVisitante">Time Visitante</label> <input type="text" class="form-control"
+								th:value="${escala?.timeVisitante}" required id="timeVisitante" name="timeVisitante"
+								readonly>
 						</div>
 				</div>
 
 				<div class="form-group col-md-2">
-					<label for="data">Data</label> <input type="text"
-						class="form-control" th:value="${escala?.data}" required id="data"
-						name="data" readonly>
+					<label for="data">Data</label> <input type="text" class="form-control" th:value="${escala?.data}"
+						required id="data" name="data" readonly>
 				</div>
 
 
 				<div class="form-row">
 					<div class="form-group col-md-5">
-						<label for="endereco">Endereço</label> <input type="text"
-							class="form-control" th:value="${escala?.endereco}" required
-							id="endereco" name="endereco" readonly>
+						<label for="endereco">Endereço</label> <input type="text" class="form-control"
+							th:value="${escala?.endereco}" required id="endereco" name="endereco" readonly>
 
 					</div>
 
 					<div class="form-row">
 						<div class="form-group col-md-5">
-							<label for="nomeEstadio">Local</label> <input type="text"
-								class="form-control" th:value="${escala?.nomeEstadio}" required
-								id="nomeEstadio" name="nomeEstadio" readonly>
+							<label for="nomeEstadio">Local</label> <input type="text" class="form-control"
+								th:value="${escala?.nomeEstadio}" required id="nomeEstadio" name="nomeEstadio" readonly>
 						</div>
 
 						<div class="form-group col-md-2">
-							<label for="horario">Horario</label> <input type="text"
-								class="form-control" th:value="${escala?.horario}" required
-								id="horario" name="horario" readonly>
+							<label for="horario">Horario</label> <input type="text" class="form-control"
+								th:value="${escala?.horario}" required id="horario" name="horario" readonly>
 						</div>
 
 						<div class="form-group col-md-5">
-							<label for="cidade">Cidade</label> <input type="text"
-								class="form-control" th:value="${escala?.cidade}" required
-								id="cidade" name="cidade" readonly>
+							<label for="cidade">Cidade</label> <input type="text" class="form-control"
+								th:value="${escala?.cidade}" required id="cidade" name="cidade" readonly>
 						</div>
 
 						<div class="form-group col-md-5">
-							<label for="estado">Estado</label> <input type="text"
-								class="form-control" th:value="${escala?.estado}" required
-								id="estado" name="estado" readonly>
+							<label for="estado">Estado</label> <input type="text" class="form-control"
+								th:value="${escala?.estado}" required id="estado" name="estado" readonly>
 						</div>
 					</div>
 					<div class="form-group col-md-2">
-						<label for="arbitro">Id Arbitro</label> <input type="text"
-							class="form-control" th:value="${escala?.arbitro?.id}" required
-							id="arbitro" name="arbitro" readonly>
+						<label for="arbitro">Id Arbitro</label> <input type="text" class="form-control"
+							th:value="${escala?.arbitro?.id}" required id="arbitro" name="arbitro" readonly>
 					</div>
 
 					<div class="form-group col-md-4">
-						<label for="arbitro">Arbitro</label> <input type="text"
-							class="form-control" th:value="${escala?.arbitro?.nome}" required
-							id="arbitro" name="arbitro" readonly>
+						<label for="arbitro">Arbitro</label> <input type="text" class="form-control"
+							th:value="${escala?.arbitro?.nome}" required id="arbitro" name="arbitro" readonly>
 					</div>
 
 					<div class="form-group col-md-3">
-						<label for="telefoneResidencial">Telefone Celular</label> <input
-							type="text" class="form-control"
-							th:value="${escala?.arbitro?.telefoneCelular}" required
+						<label for="telefoneResidencial">Telefone Celular</label> <input type="text"
+							class="form-control" th:value="${escala?.arbitro?.telefoneCelular}" required
 							id="telefoneCelular" name="telefoneCelular" readonly>
 					</div>
 
 					<div class="form-group col-md-1">
 
-						<label for="ativo">Confirmar</label> <input type="radio"
-							class="form-control" name="ativo" value="Confirmada" />
+						<label for="ativo">Confirmar</label> <input type="radio" class="form-control" name="ativo"
+							value="Confirmada" />
 					</div>
 
 					<div class="form-group col-md-2">
 						<div class="form-row">
-							<label for="ativo">Arbitro</label> <input type="text"
-								class="form-control" th:value="${escala?.ativo}" name="ativo"
-								readonly>
+							<label for="ativo">Arbitro</label> <input type="text" class="form-control"
+								th:value="${escala?.ativo}" name="ativo" readonly>
 						</div>
 					</div>
 
 					<div class="form-group col-md-3">
 
-						<label for="arbitro1">Id assistente 1</label> <input type="text"
-							class="form-control" th:value="${escala?.arbitro1?.id}" required
-							id="arbitro1" name="arbitro1" readonly>
+						<label for="arbitro1">Id assistente 1</label> <input type="text" class="form-control"
+							th:value="${escala?.arbitro1?.id}" required id="arbitro1" name="arbitro1" readonly>
 					</div>
 
 					<div class="form-group col-md-4">
-						<label for="arbitro1">Assistente 1</label> <input type="text"
-							class="form-control" th:value="${escala?.arbitro1?.nome}"
-							required id="arbitro1" name="arbitro1" readonly>
+						<label for="arbitro1">Assistente 1</label> <input type="text" class="form-control"
+							th:value="${escala?.arbitro1?.nome}" required id="arbitro1" name="arbitro1" readonly>
 					</div>
 
 					<div class="form-group col-md-2">
-						<label for="telefoneCelular">Telefone Celular</label> <input
-							type="text" class="form-control"
-							th:value="${escala?.arbitro1?.telefoneCelular}" required
-							id="telefoneCelular" name="telefoneCelular" readonly>
+						<label for="telefoneCelular">Telefone Celular</label> <input type="text" class="form-control"
+							th:value="${escala?.arbitro1?.telefoneCelular}" required id="telefoneCelular"
+							name="telefoneCelular" readonly>
 					</div>
 
 					<div class="form-group col-md-1">
-						<label for="ativo1">Confirmar</label> <br> <input
-							type="radio" class="form-control" name="ativo1"
-							value="Confirmada" />
+						<label for="ativo1">Confirmar</label> <br> <input type="radio" class="form-control"
+							name="ativo1" value="Confirmada" />
 					</div>
 
 					<div class="form-group col-md-2">
-						<label for="ativo1">Assistente 1</label> <input type="text"
-							class="form-control" th:value="${escala?.ativo1}" name="ativo1"
-							readonly>
+						<label for="ativo1">Assistente 1</label> <input type="text" class="form-control"
+							th:value="${escala?.ativo1}" name="ativo1" readonly>
 					</div>
 
 					<div class="form-group col-md-3">
-						<label for="arbitro2">Id Assistente 2</label> <input type="text"
-							class="form-control" th:value="${escala?.arbitro2?.id}" required
-							id="arbitro2" name="arbitro2" readonly>
+						<label for="arbitro2">Id Assistente 2</label> <input type="text" class="form-control"
+							th:value="${escala?.arbitro2?.id}" required id="arbitro2" name="arbitro2" readonly>
 					</div>
 
 					<div class="form-group col-md-4">
-						<label for="arbitro2">Assistente 2</label> <input type="text"
-							class="form-control" th:value="${escala?.arbitro2?.nome}"
-							required id="arbitro2" name="arbitro2" readonly>
+						<label for="arbitro2">Assistente 2</label> <input type="text" class="form-control"
+							th:value="${escala?.arbitro2?.nome}" required id="arbitro2" name="arbitro2" readonly>
 					</div>
 
 					<div class="form-group col-md-2">
-						<label for="telefoneResidencial">Telefone Celular</label> <input
-							type="text" class="form-control"
-							th:value="${escala?.arbitro2?.telefoneCelular}" required
+						<label for="telefoneResidencial">Telefone Celular</label> <input type="text"
+							class="form-control" th:value="${escala?.arbitro2?.telefoneCelular}" required
 							id="telefoneCelular" name="telefoneCelular" readonly>
 					</div>
 
 					<div class="form-group col-md-1">
-						<label for="ativo2">Confirmar Escala</label> <br> <input
-							type="radio" class="form-control" name="ativo2"
-							value="Confirmada" />
+						<label for="ativo2">Confirmar Escala</label> <br> <input type="radio" class="form-control"
+							name="ativo2" value="Confirmada" />
 
 					</div>
 					<div class="form-group col-md-2">
-						<label for="ativo2">Assistente 2</label> <input type="text"
-							class="form-control" th:value="${escala?.ativo2}" name="ativo2"
-							readonly>
+						<label for="ativo2">Assistente 2</label> <input type="text" class="form-control"
+							th:value="${escala?.ativo2}" name="ativo2" readonly>
 					</div>
 
 					<div class="form-row">
 						<div class="form-group col-md-3">
-							<label for="quartoArbitro">Id Quarto Arbitro</label> <input
-								type="text" class="form-control"
-								th:value="${escala?.quartoArbitro?.id}" required
-								id="quartoArbitro" name="quartoArbitro" readonly>
+							<label for="quartoArbitro">Id Quarto Arbitro</label> <input type="text" class="form-control"
+								th:value="${escala?.quartoArbitro?.id}" required id="quartoArbitro" name="quartoArbitro"
+								readonly>
 						</div>
 
 						<div class="form-group col-md-4">
-							<label for="quartoArbitro">Quarto Arbitro </label> <input
-								type="text" class="form-control"
-								th:value="${escala?.quartoArbitro?.nome}" required
-								id="quartoArbitro" name="quartoArbitro" readonly>
+							<label for="quartoArbitro">Quarto Arbitro </label> <input type="text" class="form-control"
+								th:value="${escala?.quartoArbitro?.nome}" required id="quartoArbitro"
+								name="quartoArbitro" readonly>
 						</div>
 
 
 
 						<div class="form-group col-md-2">
-							<label for="telefoneResidencial">Telefone Celular</label> <input
-								type="text" class="form-control"
-								th:value="${escala?.quartoArbitro?.telefoneCelular}" required
+							<label for="telefoneResidencial">Telefone Celular</label> <input type="text"
+								class="form-control" th:value="${escala?.quartoArbitro?.telefoneCelular}" required
 								id="telefoneCelular" name="telefoneCelular" readonly>
 
 						</div>
 
 						<div class="form-group col-md-1">
-							<label for="ativo3">Confirmar</label> <br> <input
-								type="radio" name="ativo3" value="Confirmada"
-								class="form-control" />
+							<label for="ativo3">Confirmar</label> <br> <input type="radio" name="ativo3"
+								value="Confirmada" class="form-control" />
 						</div>
 
 						<div class="form-group col-md-2">
-							<label for="ativo3">Quarto Árbitro</label> <input type="text"
-								class="form-control" th:value="${escala?.ativo3}" name="ativo3"
-								readonly>
+							<label for="ativo3">Quarto Árbitro</label> <input type="text" class="form-control"
+								th:value="${escala?.ativo3}" name="ativo3" readonly>
 						</div>
 
 						<br>
@@ -237,9 +209,8 @@
 
 						<hr>
 
-						<img src="/img/1.jpg" alt="some text" width="210"> <img
-							src="/img/1.jpg" alt="some text" width="210"> <img
-							src="/img/1.jpg" alt="some text" width="210">
+						<img src="/img/1.jpg" alt="some text" width="210"> <img src="/img/1.jpg" alt="some text"
+							width="210"> <img src="/img/1.jpg" alt="some text" width="210">
 
 
 

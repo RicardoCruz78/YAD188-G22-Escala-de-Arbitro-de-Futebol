@@ -1,53 +1,45 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
 
-<title>lista de Notas</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+	<title>lista de Notas</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
+
 <body>
 
 	<nav class="navbar navbar-inverse navbar">
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
 
-			<li class="nav-item"><a class="nav-link active"
-				href="arbitro/novoArbitro">Cadastrar Árbitro</a></li>
-			<li class="nav-item"><a class="nav-link active"
-				href="/listaEscala">Escala</a></li>
+			<li class="nav-item"><a class="nav-link active" href="arbitro/novoArbitro">Cadastrar Árbitro</a></li>
+			<li class="nav-item"><a class="nav-link active" href="/listaEscala">Escala</a></li>
 
-			<li class="nav-item"><a class="nav-link"
-				href="https://futebolpaulista.com.br/Home/"> FPF</a></li>
+			<li class="nav-item"><a class="nav-link" href="https://futebolpaulista.com.br/Home/"> FPF</a></li>
 			<span class="icon-bar"></span>
-			<li class="nav-item"><a class="nav-link"
-				href="https://www.cbf.com.br/"> CBF</a></li>
+			<li class="nav-item"><a class="nav-link" href="https://www.cbf.com.br/"> CBF</a></li>
 			<span class="icon-bar"></span>
-			<li class="nav-item"><a class="nav-link"
-				href="https://www.fifa.com/"> FIFA</a></li>
+			<li class="nav-item"><a class="nav-link" href="https://www.fifa.com/"> FIFA</a></li>
 			<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 		</ul>
 
 
-		<form class="form-inline" method="POST" th:object="${listaNota}"
-			th:action="@{/listaNota}" style="margin: 20px 0">
+		<form class="form-inline" method="POST" th:object="${listaNota}" th:action="@{/listaNota}"
+			style="margin: 20px 0">
 
 
 
 
 
-			<h3 class="m-0 font-weight-bold text-primary"
-				style="display: inline-block;">Lista de Notas</h3>
+			<h3 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Lista de Notas</h3>
 
 			<div class="panel panel-default" style="margin: 10px">
 				<div class="panel-heading">
-					
+
 					<div class="container mt-5">
 						<h2 align="center"> Notas</h2>
 					</div>
@@ -85,8 +77,8 @@
 									<td th:text="${nota.postura}"></td>
 									<td th:text="${nota.observacao}"></td>
 									<td th:text="${nota.nt}"></td>
-									<td><a th:href="@{'/visualizar/' + ${nota.id}}"
-										class="btn btn-warning">Visualizar</td>
+									<td><a th:href="@{'/visualizar/' + ${nota.id}}" class="btn btn-warning">Visualizar
+									</td>
 								</tr>
 
 							</tbody>
@@ -98,4 +90,3 @@
 </body>
 
 </html>
-

@@ -5,27 +5,28 @@ public class UserRegistrationDto {
 	private String nome;
 	private String email;
 	private String password;
-	private String telefoneResidencial;	
+	private String telefoneResidencial;
 	private String telefoneCelular;
 	private String dataNascimento;
-	private String rg; 
-	private String endereco;	
+	private String rg;
+	private String endereco;
 	private String cep;
-	private String cidadeNascimento;	
+	private String cidadeNascimento;
 	private String escolaridade;
-	private String estado;	
+	private String estado;
 	private String AnoFormacaoArbitro;
-	private String estadoCivil;	
-	private String peso; 	
-	private String altura;	
+	private String estadoCivil;
+	private String peso;
+	private String altura;
 	private String funcao;
 	private String pix;
-	public UserRegistrationDto() {
-	
-}
 
-	public UserRegistrationDto(String cpf,String email, String nome, String password, String telefoneResidencial,
-			String telefoneCelular,  String dataNascimento, String rg, String endereco, String cep,
+	public UserRegistrationDto() {
+
+	}
+
+	public UserRegistrationDto(String cpf, String email, String nome, String password, String telefoneResidencial,
+			String telefoneCelular, String dataNascimento, String rg, String endereco, String cep,
 			String cidadeNascimento, String escolaridade, String estado, String anoFormacaoArbitro, String estadoCivil,
 			String peso, String altura, String funcao, String pix) {
 		super();
@@ -34,7 +35,7 @@ public class UserRegistrationDto {
 		this.nome = nome;
 		this.password = password;
 		this.telefoneResidencial = telefoneResidencial;
-		this.telefoneCelular = telefoneCelular;		
+		this.telefoneCelular = telefoneCelular;
 		this.dataNascimento = dataNascimento;
 		this.rg = rg;
 		this.endereco = endereco;
@@ -201,6 +202,5 @@ public class UserRegistrationDto {
 	public void setPix(String pix) {
 		this.pix = pix;
 	}
-	
 
 }

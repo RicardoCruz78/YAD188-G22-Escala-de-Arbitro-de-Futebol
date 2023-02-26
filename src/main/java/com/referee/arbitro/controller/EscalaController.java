@@ -1,6 +1,5 @@
 package com.referee.arbitro.controller;
 
-
 import org.springframework.security.core.userdetails.*;
 import java.util.List;
 import java.util.Optional;
@@ -68,21 +67,20 @@ public class EscalaController {
 		}
 		return "escala/listaEscala";
 	}
-	
-	// ------------------Pesquisar escalas --------------------
-			@RequestMapping(path = { "/listaEscalas" })
-			public String pesquisarEscalas(Escala escala, Model model, String keyword) {
-				if (keyword != null) {
-					List<Escala> list = service.getByKeyword(keyword);
-					model.addAttribute("list", list);
 
-				} else {
-					List<Escala> list = service.getAllEscalas();
-					model.addAttribute("list", list);
-				}
-				return "escala/listaEscalas";
-			}
-		
+	// ------------------Pesquisar escalas --------------------
+	@RequestMapping(path = { "/listaEscalas" })
+	public String pesquisarEscalas(Escala escala, Model model, String keyword) {
+		if (keyword != null) {
+			List<Escala> list = service.getByKeyword(keyword);
+			model.addAttribute("list", list);
+
+		} else {
+			List<Escala> list = service.getAllEscalas();
+			model.addAttribute("list", list);
+		}
+		return "escala/listaEscalas";
+	}
 
 	// -------------tela do formulario cadastrar escala -------------//
 

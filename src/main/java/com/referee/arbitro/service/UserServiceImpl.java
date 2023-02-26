@@ -25,85 +25,111 @@ import com.referee.arbitro.web.dto.UserRegistrationDto;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+	private UserRepository userRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository) {
-        super();
-        this.userRepository = userRepository;
-    } 
+	public UserServiceImpl(UserRepository userRepository) {
+		super();
+		this.userRepository = userRepository;
+	}
+
+	public void updateResetPasswordToken(String token, String email) throws UsernameNotFoundException {
+		User user = userRepo.findByEmail(email);
+		if (user != null) {
+			user.setResetPasswordToken(token);
+			userRepo.save(user);
+		} else {
+			throw new UsernameNotFoundException("Não foi possível encontrar nenhum cliente com o e-mail " + email);
+		}
+	}
+
+	public User getByResetPasswordToken(String token) {
+		return userRepo.findByResetPasswordToken(token);
+	}
+
+	public void updatePassword(User user, String newPassword) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String encodedPassword = passwordEncoder.encode(newPassword);
+		user.setPassword(encodedPassword);
+
+		user.setResetPasswordToken(null);
+		userRepo.save(user);
+	}
+
 // aqui
-  
+
 	@Override
-    public User save(UserRegistrationDto registrationDto) {
-        User user = new User(registrationDto.getNome(),registrationDto.getEmail(),registrationDto.getTelefoneCelular(),  passwordEncoder.encode(registrationDto.getPassword()), 
-                Arrays.asList(new Role("ROLE_USER"))); 
+	public User save(UserRegistrationDto registrationDto) {
+		User user = new User(registrationDto.getNome(), registrationDto.getEmail(),
+				registrationDto.getTelefoneCelular(), passwordEncoder.encode(registrationDto.getPassword()),
+				Arrays.asList(new Role("ROLE_USER")));
 
-        return userRepository.save(user); 
+		return userRepository.save(user);
 
-    }
-    //olhar aqui
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	}
 
-        User user = userRepository.findByEmail(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("Invalid username or password.");
-        }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
-                mapRolesToAuthorities(user.getRoles()));
-    }
+	// olhar aqui
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-    }
+		User user = userRepository.findByEmail(username);
+		if (user == null) {
+			throw new UsernameNotFoundException("Invalid username or password.");
+		}
+		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+				mapRolesToAuthorities(user.getRoles()));
+	}
 
+	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
+		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+	}
 
-    @Autowired
-    private UserRepository userRepo;
+	@Autowired
+	private UserRepository userRepo;
 
-    // Listar todos os user
+	// Listar todos os user
 
-    public List<User> getAllUsers() {
-        List<User> list = (List<User>) userRepo.findAll();
-        return list;
-    }
+	public List<User> getAllUsers() {
+		List<User> list = (List<User>) userRepo.findAll();
+		return list;
+	}
 
-    // Buscar todos os user por id
+	// Buscar todos os user por id
 
-    public Optional<User> getById(Long id) {
+	public Optional<User> getById(Long id) {
 
-        return userRepo.findById(id);
-    }
-    public List<User> getByKeyword(String keyword){
-        return userRepo.findByKeyword(keyword);
-       }
-    
-    @Override
-    public User getByEmail(String email) {
-    	return userRepo.findByEmail(email);
-    }
+		return userRepo.findById(id);
+	}
 
+	public List<User> getByKeyword(String keyword) {
+		return userRepo.findByKeyword(keyword);
+	}
 
-    public User getUserLogged() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-      //  auth.getPrincipal().
-        Long id = ((Role) auth).getId();
+	@Override
+	public User getByEmail(String email) {
+		return userRepo.findByEmail(email);
+	}
 
-        return userRepo.findById(id).get();
-    }
+	public User getUserLogged() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		// auth.getPrincipal().
+		Long id = ((Role) auth).getId();
 
-    @SuppressWarnings("unlikely-arg-type")
+		return userRepo.findById(id).get();
+	}
+
+	@SuppressWarnings("unlikely-arg-type")
 	public Boolean userLoggedContainAuthority(String authority) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return auth.getAuthorities().contains(authority);
-    }
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth.getAuthorities().contains(authority);
+	}
 
 	@Override
 	public User save(UserRegistrationController registrationDto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

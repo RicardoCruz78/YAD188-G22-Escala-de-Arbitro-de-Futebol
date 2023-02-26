@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="utf-8" />
+<title>Portal do Árbitro</title>
+
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="true"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span>
+					<li class="nav-item"><a th:href="@{/logout}"> Logout</a></li> <span
+						sec:authorize="hasRole('ADMIN')" class="icon-bar"></span>
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						href="/" th:href="@{/registration}"> Registrar</a></li> <span
+						class="icon-bar"></span>
+					<li class="nav-item"><a class="nav-link" href="/listaArbitro">Árbitro</a></li>
+					
+				
+					<li  class="nav-item"><a class="nav-link" href="/buscarId">Buscar Id</a></li>
+					
+
+					<span class="icon-bar"></span>
+					<li class="nav-item"><a class="nav-link" href="/listaNota">Nota</a></li>
+
+					<span sec:authorize="hasRole('ADMIN')" class="icon-bar"></span>
+					<li class="nav-item"><a class="nav-link" href="/listaArbitro">
+							Listar Árbitros</a></li> <span class="icon-bar"></span>
+					<li class="nav-item"><a class="nav-link" href="/listaEscala">
+							Escala</a></li> <span sec:authorize="hasRole('ADMIN')" class="icon-bar"></span>
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/listaEscalas">Listar Escalas</a></li> <span
+						sec:authorize="hasRole('ADMIN')" class="icon-bar"></span>
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/listaUser"> Listar Usuario</a></li> <span
+						sec:authorize="hasRole('ADMIN')" class="icon-bar"></span>
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/nota/novaNota"> Cadastrar Nota</a></li> <span
+						sec:authorize="hasRole('ADMIN')" class="icon-bar"></span>
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/listaNotas"> Listar Notas</a></li> <span
+						class="icon-bar"></span>
+					<li class="nav-item"><a class="nav-link"
+						href="https://futebolpaulista.com.br/Home/"> FPF</a></li> <span
+						class="icon-bar"></span>
+					<li class="nav-item"><a class="nav-link"
+						href="https://www.cbf.com.br/"> CBF</a></li> <span class="icon-bar"></span>
+					<li class="nav-item"><a class="nav-link"
+						href="https://www.fifa.com/"> FIFA</a></li>
+
+
+
+
+				</button>
+
+				<a class="navbar-brand">Portal do Árbitro</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+
+
+
+
+					<li class="nav-item"><a class="nav-link" href="/listaArbitro">Árbitro</a></li>
+					
+					<li sec:authorize="hasRole('USER')" class="nav-item"><a class="nav-link" href="/buscarId">buscar Id</a></li>
+
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/listaArbitros">Listar Árbitros</a></li>
+
+					<li class="nav-item"><a class="nav-link" href="/listaEscala">Escala</a></li>
+
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/listaEscalas">Listar Escalas</a></li>
+
+
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/nota/novaNota">Cadastrar Notas</a></li>
+
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/listaNotas">Listar Notas</a></li>
+
+					<li class="nav-item"><a class="nav-link" href="/listaNota">Nota</a></li>
+
+
+
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						class="nav-link" href="/listaUser">Listar Usuários</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="https://futebolpaulista.com.br/Home/" target="_blank">FPF</a>
+					<li class="nav-item"><a class="nav-link"
+						href="https://www.cbf.com.br/" target="_blank">CBF</a>
+					<li class="nav-item"><a class="nav-link"
+						href="https://www.fifa.com/" target="_blank">FIFA</a>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+						href="/" th:href="@{/registration}">Registrar</a></li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<div class="container">
+		<br> <br> Bem Vindo <span
+			sec:authentication="principal.username"> User</span>
+
+
+
+
+		<script>
+			date = new Date().toLocaleDateString();
+			document.write(date);
+
+			document.write(time);
+		</script>
+
+
+
+		<script type="text/javascript">
+			function startTime() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				// adicione um zero na frente de números<10
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById('txt').innerHTML = h + ":" + m + ":"
+						+ s;
+				t = setTimeout('startTime()', 500);
+			}
+			function checkTime(i) {
+				if (i < 10) {
+					i = "0" + i;
+				}
+				return i;
+			}
+		</script>
+		</head>
+		<body onload="startTime()">
+			<div id="txt"></div>
+		</body>
+
+
+
+
+
+		<div>
+			<img src="/img/ARB.jpg" height="600" width="1300">
+		</div>
+</body>
+</html>

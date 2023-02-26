@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -18,17 +19,14 @@ import lombok.NoArgsConstructor;
 @Table(name = "role")
 public class Role {
 
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-
-	
 
 	public Role(String name) {
 		super();
 		this.name = name;
 	}
 
-	
 }

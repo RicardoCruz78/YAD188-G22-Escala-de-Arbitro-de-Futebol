@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import com.referee.arbitro.model.User;
 import com.referee.arbitro.repository.UserRepository;
 import com.referee.arbitro.service.UserService;
@@ -21,9 +20,8 @@ import com.referee.arbitro.service.UserService;
 public class UserController {
 	@Autowired
 	private UserRepository userRepo;
-	@Autowired	 
-private UserService service;
-	
+	@Autowired
+	private UserService service;
 
 	// --------------Listar user----------------------//
 	@GetMapping("/listaUser")
@@ -33,42 +31,37 @@ private UserService service;
 		return "user/listaUser";
 
 	}
-	
-	
+
 	// ------------------Buscar User por adm --------------------
-			 @SuppressWarnings("unused")
-			@RequestMapping(path = {"/listaUser"})
-			   public String listarTodos(User user, Model model,String keyword, Long id) {
-			    if(keyword!=null  ) {
-			  //   Optional<User> list = service.getById(id);
-			     List<User>list = service.getByKeyword(keyword);
-			     model.addAttribute("list", list);
-			   //  model.addAttribute("codigo", id);
-			    }else {
-			    List<User> list = service.getAllUsers();
-			    model.addAttribute("list", list);}
-			    return "user/listaUser";
-			   }
-			 
-			 
-			 
-			// ------------------Buscar o Id do usuário digitando o nome --------------------
-			 @RequestMapping(path = {"/buscarId"})
-			   public String buscarId(User user, Model model,String keyword, Long id) {
-			    if(keyword!=null) {
-			    	  List<User> list = service.getByKeyword(keyword);
-			   	   model.addAttribute("list", list);
-			   	  }else {
-			   	  List<User> list = service.getAllUsers();
-			   	  model.addAttribute("list", list);}
-			    return "user/buscarId";
-			   }
-	
-			 
-			 
-			 
-	
-	
+	@SuppressWarnings("unused")
+	@RequestMapping(path = { "/listaUser" })
+	public String listarTodos(User user, Model model, String keyword, Long id) {
+		if (keyword != null) {
+			// Optional<User> list = service.getById(id);
+			List<User> list = service.getByKeyword(keyword);
+			model.addAttribute("list", list);
+			// model.addAttribute("codigo", id);
+		} else {
+			List<User> list = service.getAllUsers();
+			model.addAttribute("list", list);
+		}
+		return "user/listaUser";
+	}
+
+	// ------------------Buscar o Id do usuário digitando o nome
+	// --------------------
+	@RequestMapping(path = { "/buscarId" })
+	public String buscarId(User user, Model model, String keyword, Long id) {
+		if (keyword != null) {
+			List<User> list = service.getByKeyword(keyword);
+			model.addAttribute("list", list);
+		} else {
+			List<User> list = service.getAllUsers();
+			model.addAttribute("list", list);
+		}
+		return "user/buscarId";
+	}
+
 	// ============================Buscando com Validação=================
 
 	@GetMapping("/user/{id}")
@@ -97,12 +90,12 @@ private UserService service;
 
 	}
 
-	// ------------- excluindo --------------// 
+	// ------------- excluindo --------------//
 	@GetMapping("/user/{id}/excluir")
 	public String excluir(@PathVariable Long id) {
 
 		userRepo.deleteById(id);
 		return "redirect:/listaUser";
 	}
-	
+
 }
