@@ -56,7 +56,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// .antMatchers(HttpMethod.GET, "/forgot_password").hasRole("USER")
 
 				.and().formLogin().loginPage("/login").loginPage("/registration").loginPage("/forgot_password")
-				.loginPage("/reset_password")
+				.loginPage("/reset_password").loginPage("/")
 
 				.permitAll()
 
