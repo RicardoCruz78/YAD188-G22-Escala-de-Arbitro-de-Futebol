@@ -50,7 +50,7 @@ public class ForgotPasswordController {
 		} catch (UsernameNotFoundException ex) {
 			model.addAttribute("error", ex.getMessage());
 		} catch (UnsupportedEncodingException | MessagingException e) {
-			model.addAttribute("error", "Error while sending email");
+			model.addAttribute("error", "Erro ao enviar e-mail");
 		}
 
 		return "forgot_password_form";
@@ -103,10 +103,10 @@ public class ForgotPasswordController {
 			return "message";
 		} else {
 			userService.updatePassword(user, password);
-
-			model.addAttribute("\"message\", \"You have successfully changed your password.\"");
+			model.addAttribute("message","You have successfully changed your password");
+			
 		}
 
-		return "message";
+		return "/login";
 	}
 }

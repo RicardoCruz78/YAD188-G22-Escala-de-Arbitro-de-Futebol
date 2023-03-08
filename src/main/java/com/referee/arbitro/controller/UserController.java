@@ -22,7 +22,7 @@ public class UserController {
 	private UserRepository userRepo;
 	@Autowired
 	private UserService service;
-
+/*
 	// --------------Listar user----------------------//
 	@GetMapping("/listaUser")
 	public String listaUser(Model model) {
@@ -31,7 +31,7 @@ public class UserController {
 		return "user/listaUser";
 
 	}
-
+*/
 	// ------------------Buscar User por adm --------------------
 	@SuppressWarnings("unused")
 	@RequestMapping(path = { "/listaUser" })
