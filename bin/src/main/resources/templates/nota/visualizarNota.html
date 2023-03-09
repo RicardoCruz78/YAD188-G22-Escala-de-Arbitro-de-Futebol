@@ -1,0 +1,125 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Editar Escala</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<ul class="nav nav-tabs">
+		<li class="nav-item"><a class="nav-link active" href="/">Home</a>
+		</li>
+		<li class="nav-item"><a class="nav-link" href="/listaArbitro">Lista
+				de Árbitros</a></li>
+
+		<li class="nav-item"><a class="nav-link" href="https://futebolpaulista.com.br/Home/"> FPF</a></li>
+		<span class="icon-bar"></span>
+		<li class="nav-item"><a class="nav-link" href="https://www.cbf.com.br/"> CBF</a></li>
+		<span class="icon-bar"></span>
+		<li class="nav-item"><a class="nav-link" href="https://www.fifa.com/"> FIFA</a></li>
+
+		<li class="nav-item">
+		<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+		</li>
+	</ul>
+	<div class="container">
+		<div class="panel panel-default" style="margin: 10px">
+			<div class="panel-heading">
+				<h1 class="panel-title">Regular</h1>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<form method="POST" th:action="@{'/nota/' + ${nota.id} + '/visualizarNota'}">
+
+						<div class="form-group col-md-2">
+							<label for="nota">Id Nota</label> <input type="text" class="form-control"
+								th:value="${nota?.id}" required id="nota" name="nota" readonly>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="nome">Nome do Árbitro</label> <input type="text" class="form-control"
+								th:value="${nota?.user?.nome}" required id="nome" name="nome" readonly>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-5">
+								<label for="dificuldade">Dificuldade</label> <input type="text" class="form-control"
+									th:value="${nota?.dificuldade}" required id="dificuldade" name="dificuldade"
+									readonly>
+
+
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="emocional">Controle</label> <input type="text" class="form-control"
+									th:value="${nota?.emocional}" required id="emocional" name="emocional" readonly>
+							</div>
+
+							<div class="form-row">
+								<div class="form-group col-md-2">
+									<label for="som_apito">som_apito</label> <input type="text" class="form-control"
+										th:value="${nota?.som_apito}" required id="som_apito" name="som_apito" readonly>
+
+								</div>
+
+								<div class="form-row">
+									<div class="form-group col-md-4">
+										<label for="comunicacao">Comunicação</label> <input type="text"
+											class="form-control" th:value="${nota?.comunicacao}" required
+											id="comunicacao" name="comunicacao" readonly>
+
+									</div>
+
+									<div class="form-row">
+										<div class="form-group col-md-5">
+											<label for="fisico">Físico</label> <input type="text" class="form-control"
+												th:value="${nota?.fisico}" required id="fisico" name="fisico" readonly>
+
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="form-group col-md-2">
+											<label for="postura">Postura</label> <input type="text" class="form-control"
+												th:value="${nota?.postura}" required id="postura" name="postura"
+												readonly>
+										</div>
+
+										<div class="form-group col-md-6">
+											<label for="observacao">Observação</label> <input type="text"
+												class="form-control" th:value="${nota?.observacao}" required
+												id="observacao" name="observacao" readonly>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="nt">Nota</label> <input type="text" class="form-control"
+												th:value="${nota?.nt}" required id="nt" name="nt" readonly>
+										</div>
+
+										<br>
+
+										<div class="form-group col-md-6">
+
+											<button class="btn btn-warning" href="javascript:void(0)"
+												onClick="history.go(-1); return false;">Voltar</button>
+										</div>
+										<img src="/img/1.jpg" width="900">
+
+									</div>
+								</div>
+
+							</div>
+					</form>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+
+	<title>lista de Árbitros</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<ul class="nav nav-tabs">
+			<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+
+			<li class="nav-item"><a class="nav-link active" href="arbitro/novoArbitro">Cadastrar Árbitro</a></li>
+			<li class="nav-item"><a class="nav-link active" href="/listaEscala">Escala</a></li>
+
+			<li class="nav-item"><a class="nav-link" href="https://futebolpaulista.com.br/Home/" target="_blank">FPF</a>
+			<li class="nav-item"><a class="nav-link" href="https://www.cbf.com.br/"> CBF</a></li>
+			<span class="icon-bar"></span>
+
+			<li class="nav-item"><a class="nav-link" href="https://www.fifa.com/"> FIFA</a></li>
+
+			<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+
+
+		<form class="form-inline" method="POST" th:object="${listaArbitro}" th:action="@{/listaArbitro}"
+			style="margin: 20px 0">
+
+
+
+
+
+			<h3 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Lista de Árbitros</h3>
+
+			<div class="panel panel-default" style="margin: 10px">
+				<div class="panel-heading">
+
+					<div class="container mt-5">
+						<h2 align="center">Árbitro</h2>
+
+
+					</div>
+
+					<div class="panel-body">
+						<table class="table">
+
+
+							<thead>
+
+
+								<tr>
+									<th>id</th>
+									<th>nome</th>
+									<th sec:authorize="hasRole('ADMIN')">email</th>
+									<th sec:authorize="hasRole('ADMIN')">Telefone Residencial</th>
+									<th sec:authorize="hasRole('ADMIN')">Telefone Celular</th>
+
+									<th sec:authorize="hasRole('ADMIN')">cpf</th>
+									<!--  
+							<th>Data Nascimento</th> 
+							<th>Rg</th>	
+							<th>Endereço</th>						
+							<th>Cidade Nascimento</th>
+							
+						-->
+									<th>Escolaridade</th>
+									<th>Ano de Formacao de Árbitro</th>
+
+									<th>Peso</th>
+									<th>Altura</th>
+									<th>Funcão</th>
+									<th sec:authorize="hasRole('ADMIN')">Pix</th>
+									<th>Disponibilidade</th>
+
+									<th>
+							</thead>
+							<tbody>
+
+
+								<tr>
+								<tr th:each="arbitro : ${arbitro} ">
+									<td th:text="${arbitro?.user?.id}"></td>
+									<td th:text="${arbitro.user.nome}"></td>
+									<td sec:authorize="hasRole('ADMIN')" th:text="${arbitro.user.email}"></td>
+									<td sec:authorize="hasRole('ADMIN')" th:text="${arbitro.telefoneResidencial}"></td>
+									<td sec:authorize="hasRole('ADMIN')" th:text="${arbitro.user.telefoneCelular}"></td>
+									<td sec:authorize="hasRole('ADMIN')" th:text="${arbitro.cpf}"></td>
+									<!--
+							<td th:text="${arbitro.dataNascimento}"></td>
+							<td th:text="${arbitro.rg}"></td>
+							<td th:text="${arbitro.endereco}"></td>						
+							<td th:text="${arbitro.cidadeNascimento}"></td>	-->
+									<td th:text="${arbitro.escolaridade}"></td>
+									<td th:text="${arbitro.anoFormacaoArbitro}"></td>
+									<td th:text="${arbitro.peso}"></td>
+									<td th:text="${arbitro.altura}"></td>
+									<td th:text="${arbitro.funcao}"></td>
+									<td sec:authorize="hasRole('ADMIN')" th:text="${arbitro.pix}"></td>
+									<td th:text="${arbitro.disponibilidade}"></td>
+
+
+
+									<td><a th:href="@{'/arbitro/' + ${arbitro.id}}" class="btn btn-warning">Alterar</td>
+
+
+
+									<td><a sec:authorize="hasRole('ADMIN')" href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/arbitro/{id}(id=${arbitro.id})}
+	 + '/excluir\' } '" class="btn btn-danger">Excluir</td>
+
+
+								</tr>
+
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<img src="/img/3.jpg" height="400" width="1800">
+			</div>
+</body>
+
+</html>
