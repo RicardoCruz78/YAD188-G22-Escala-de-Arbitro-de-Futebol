@@ -26,6 +26,9 @@
 - MySql 
 - #### Ferramentas:
 - Postman
+- Spring Tools Suite 4
+- Astah UML
+- WorkBeach
 # ======================
 ### Cadastro de Login e senha
 ![cadastrar login](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/cadastroLogin.jpg)
@@ -70,12 +73,9 @@
 # ======================
 ### Esqueci a Senha
 ![Esqueci Senha](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/esqueceuSenha.jpeg)
-
 # ======================
 ### Envio do Link no email
 ![linkno e-mail](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/email.jpeg)
-
-
 # ======================
 ### Cadastrar nova senha
 ![Nova Senha](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/novaSenha.jpeg)
