@@ -1,5 +1,5 @@
 # YAD188-G22-Escala-de-Arbitro-de-Futebol
-[![img 1] ](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/2.jpg)
+
 [![REFEREE](https://img.shields.io/aur/license/r?label=referee&logo=r&style=flat-square)](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/LICENSE)
 ### Projeto Spring Boot mvc.
 - Projeto para cadastrar árbitros de futebol, cadastrar eles ou elas para determinadas partidas de futebol cadastrando notas das performace das partidas de cada árbitro.
@@ -26,3 +26,56 @@
 - MySql 
 - #### Ferramentas:
 - Postman
+# ======================
+### Cadastro de Login e senha
+![cadastrar login](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/cadastroLogin.jpg)
+# ======================
+### Logar
+![login ](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/login.jpg)
+# ======================
+### Home
+![home ](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/menu.jpg)
+# ======================
+### Lista de Usuário
+![listaUser ](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/listaUser.jpeg)
+
+# ======================
+### Cadastro ou editar Árbitro
+![cadastrar arb ](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/cadastrandoArb.jpeg)
+# ======================
+### Lista Árbitro
+![listaArb ](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/listaArbitro.jpeg)
+
+# ======================
+### Cadastro de Escala
+![escala cadastro](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/cadastrarEscala.jpeg)
+# ======================
+### Editar Escala
+![editar escala ](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/confirmarEscala.jpeg)
+# ======================
+### Escala não confirmada
+![confirmação](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/confirma%C3%A7%C3%A3o.jpeg)
+# ======================
+### Escala Confirmada
+![confirmada](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/escalaConfirmada.jpeg)
+# ======================
+### Lista de Escalas
+![lista escala](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/listaEscalaAdm.jpeg)
+# ======================
+### Cadastro de Notas
+![notas ](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/cadastrarNota.jpeg)
+# ======================
+### Visualizar Notas
+![visualizar notas](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/visualizarNota.jpeg)
+# ======================
+### Esqueci a Senha
+![Esqueci Senha](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/esqueceuSenha.jpeg)
+
+# ======================
+### Envio do Link no email
+![linkno e-mail](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/email.jpeg)
+
+
+# ======================
+### Cadastrar nova senha
+![Nova Senha](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/novaSenha.jpeg)
