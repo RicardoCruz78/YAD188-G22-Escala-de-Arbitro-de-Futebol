@@ -1,5 +1,4 @@
 # YAD188-G22-Escala-de-Arbitro-de-Futebol
-# README.md 
 [![REFEREE](https://img.shields.io/aur/license/r?label=referee&logo=r&style=flat-square)](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/LICENSE)
 ### Projeto Spring Boot mvc.
 - Projeto para cadastrar árbitros de futebol, cadastrar eles ou elas para determinadas partidas de futebol cadastrando notas das performace das partidas de cada árbitro.
