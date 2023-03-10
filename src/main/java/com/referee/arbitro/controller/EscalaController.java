@@ -94,7 +94,7 @@ public class EscalaController {
 	@PostMapping("/escala/criar")
 	public String criar(Escala escala) {
 		escalaRepo.save(escala);
-		return "redirect:/listaEscala";
+		return "redirect:/listaEscalas";
 	}
 
 	// --------------------buscar escala -----------------------//
@@ -127,7 +127,7 @@ public class EscalaController {
 	@GetMapping("/escala/{id}/excluir")
 	public String excluir(@PathVariable Long id) {
 		escalaRepo.deleteById(id);
-		return "redirect:/listaEscala";
+		return "redirect:/listaEscalas";
 	}
 
 	// --------------------confirmar escala -----------------------//
