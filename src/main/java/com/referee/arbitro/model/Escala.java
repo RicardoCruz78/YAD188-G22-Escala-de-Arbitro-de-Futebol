@@ -63,6 +63,9 @@ public class Escala implements Serializable {
 
 	@JoinColumn(nullable = true, name = "id_Confirmação3")
 	private String ativo3;
+	
+	@Column(length = 70, nullable = true)
+	private String categoria;
 
 	@Column(length = 70, nullable = true)
 	private String timeMandante;

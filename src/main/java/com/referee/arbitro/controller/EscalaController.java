@@ -118,7 +118,7 @@ public class EscalaController {
 			return "redirect:/listaEscala";
 		}
 		escalaRepo.save(escala);
-		return "redirect:/listaEscala";
+		return "redirect:/listaEscalas";
 
 	}
 

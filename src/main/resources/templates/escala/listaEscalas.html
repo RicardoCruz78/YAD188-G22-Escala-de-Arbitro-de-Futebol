@@ -74,13 +74,14 @@
 									<th>Quarto Árbitro</th>
 									<th>Confirmar</th>
 									<!--  
-									<th>Data</th>
+									
 									<th>Endereço</th>
 									<th>Local</th>
 									-->
 							<tfoot>
 								<th>
-
+								
+								<th>Data</th>
 								<th>Time Mandante</th>
 								<th>Time visitante</th>
 								<th>Árbitro</th>
@@ -93,7 +94,7 @@
 
 								<th>Confirmar</th>
 								<!-- 
-								<th>Data</th>
+								
 								<th>Endereço</th>
 								<th>Local</th>
 								 -->
@@ -129,7 +130,7 @@
 									<td th:text="${escala.nomeEstadio}"></td>
 									-->
 										<td><a sec:authorize="hasRole('ADMIN')" th:href="@{'/escala/' + ${escala.id}}"
-												class="btn btn-warning">Alterar</td>
+												class="btn btn-warning">Editar</td>
 
 										<td><a th:href="@{'/confirmar/' + ${escala.id}}"
 												class="btn btn-warning">Confirmar Escala</td>
