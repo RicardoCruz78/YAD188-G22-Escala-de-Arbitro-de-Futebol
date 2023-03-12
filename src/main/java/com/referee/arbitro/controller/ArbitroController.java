@@ -45,16 +45,16 @@ public class ArbitroController {
 
 	// ------------------Listar todos arbitros
 	// --------------------------------------------
-/*
+
 	@GetMapping("/listaArbitros")
 	public String listaArbitros(Model model) {
 		List<Arbitro> arbitro = (List<Arbitro>) arb.findByOrderByIdDesc();
 
 		model.addAttribute("arbitro", arbitro);
-		return "arbitro/listaArbitros";
+		return "arbitro/listaArbitro";
 
 	}
-*/
+
 	// ------------------Buscar arbitro --------------------
 	@RequestMapping(path = { "/listaArbitro" })
 	public String listarTodos(Arbitro arbitro, Model model, Long id) {
