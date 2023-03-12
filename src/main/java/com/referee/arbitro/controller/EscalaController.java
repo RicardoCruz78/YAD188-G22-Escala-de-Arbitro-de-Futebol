@@ -50,7 +50,7 @@ public class EscalaController {
 		List<Escala> escala = (List<Escala>) escalaRepo.findByOrderByIdDesc();
 
 		model.addAttribute("escala", escala);
-		return "escala/listaEscalas";
+		return "escala/listaEscala";
 
 	}
 

@@ -50,7 +50,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET, "/escala/{id}/excluir").hasRole("ADMIN")
 				.antMatchers(HttpMethod.GET, "/listaNotas").hasRole("ADMIN").antMatchers(HttpMethod.GET, "/buscarId")
 				.hasRole("USER")
+				.antMatchers(HttpMethod.GET, "/listaEscalas").hasRole("ADMIN")
+
 				.and().formLogin().loginPage("/login").loginPage("/registration").loginPage("/forgot_password")
+				
 				.loginPage("/reset_password").loginPage("/")
 
 				.permitAll()
