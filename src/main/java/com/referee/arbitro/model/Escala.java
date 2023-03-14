@@ -73,6 +73,7 @@ public class Escala implements Serializable {
 	@Column(length = 70, nullable = true)
 	private String timeVisitante;
 
+	
 	@Column(length = 15, nullable = true)
 	private String data;
 
