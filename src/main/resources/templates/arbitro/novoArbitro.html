@@ -55,6 +55,26 @@
 					</p>
 
 				</div>
+					
+								
+								<div class="form-group col-md-3">
+									<label for="escolaridade">Escolaridade</label> <br> <input type="radio"
+										name="escolaridade" value="Ensino Médio" />
+									Ensino Médio <input type="radio" name="escolaridade" value="Superior" /> Superior
+								</div>
+								
+								<div class="form-group col-md-3">
+									<label for="escolaridade">Função</label> <br> <input type="radio" name="funcao"
+										value="Árbitro" /> Árbitro <input type="radio" name="funcao"
+										value="Assistente" /> Assistente
+								</div>
+								
+								<div class="form-group col-md-2">
+									<label for="anoFormacaoArbitro">Ano Formação Árbitro</label> <input type="text"
+										class="form-control" th:value="${arbitro?.anoFormacaoArbitro}" required
+										id="anoFormacaoArbitro" name="anoFormacaoArbitro">
+								</div>
+								
 
 
 				</table>

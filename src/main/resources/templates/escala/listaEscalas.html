@@ -60,7 +60,7 @@
 
 
 								<tr>
-									<th>Cd escala</th>
+									<th>Categoria</th>
 									<th>Data</th>
 									<th>Time Mandante</th>
 									<th>Time visitante</th>
@@ -73,6 +73,7 @@
 									<th>Confirmar</th>
 									<th>Quarto Árbitro</th>
 									<th>Confirmar</th>
+									<th>Categoria</th>
 									<!--  
 									
 									<th>Endereço</th>
@@ -80,7 +81,7 @@
 									-->
 							<tfoot>
 								<th>
-								
+
 								<th>Data</th>
 								<th>Time Mandante</th>
 								<th>Time visitante</th>
@@ -109,9 +110,9 @@
 									<tr>
 									<tr th:each="escala : ${list}" th:field="${escala}">
 
-										<td th:text="${escala.id}"></td>
+										<td th:text="${escala.categoria}"></td>
 										<td th:text="${escala.data}"></td>
-                                       
+
 										<td th:text="${escala.timeMandante}"></td>
 										<td th:text="${escala.timeVisitante}"></td>
 										<td th:text="${escala.arbitro.nome}"></td>
@@ -133,7 +134,7 @@
 												class="btn btn-warning">Editar</td>
 
 										<td><a th:href="@{'/confirmar/' + ${escala.id}}"
-												class="btn btn-warning">Confirmar Escala</td>
+												class="btn btn-warning">Confirmar</td>
 
 
 										<td><a sec:authorize="hasRole('ADMIN')" href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/escala/{id}(id=${escala.id})}

@@ -65,7 +65,7 @@ public class EscalaController {
 			List<Escala> list = service.getAllEscalas();
 			model.addAttribute("list", list);
 		}
-		return "escala/listaEscala";
+		return "escala/listaEscalas";
 	}
 
 	// ------------------Pesquisar escalas --------------------

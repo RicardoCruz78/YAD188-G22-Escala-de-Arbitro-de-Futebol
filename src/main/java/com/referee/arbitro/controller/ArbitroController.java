@@ -51,7 +51,7 @@ public class ArbitroController {
 		List<Arbitro> arbitro = (List<Arbitro>) arb.findByOrderByIdDesc();
 
 		model.addAttribute("arbitro", arbitro);
-		return "arbitro/listaArbitro";
+		return "arbitro/listaArbitros";
 
 	}
 
