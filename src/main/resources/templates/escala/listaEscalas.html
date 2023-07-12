@@ -60,6 +60,7 @@
 
 
 								<tr>
+							
 									<th>Categoria</th>
 									<th>Data</th>
 									<th>Time Mandante</th>
@@ -111,6 +112,7 @@
 									<tr th:each="escala : ${list}" th:field="${escala}">
 
 										<td th:text="${escala.categoria}"></td>
+										
 										<td th:text="${escala.data}"></td>
 
 										<td th:text="${escala.timeMandante}"></td>
