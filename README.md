@@ -81,4 +81,5 @@
 ![Nova Senha](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/novaSenha.jpeg)
 
 ### Postman
-![postman](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/pstman.jpeg)
+![Postman](https://github.com/RicardoCruz78/YAD188-G22-Escala-de-Arbitro-de-Futebol/blob/main/src/main/resources/static/img/postman.jpg)
+
